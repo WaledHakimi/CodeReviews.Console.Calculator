@@ -18,7 +18,7 @@ namespace CalculatorApp
                     "3 - Delete calculation records\n\t4 - Exit calculation console app");
                 userInput = Console.ReadLine();
                 //to check the user input a number or not
-                while (userInput == null || !Regex.IsMatch(userInput, "[1 - 4]"))
+                while (userInput == null || !Regex.IsMatch(userInput, "[1-4]"))
                 {
                     Console.WriteLine("Please choose from 1 to 4");
                     Console.ReadLine();
@@ -148,6 +148,8 @@ namespace CalculatorApp
                             Console.WriteLine("All the calculation records are deleted successfully. Please enter.");
                             Console.ReadLine();
                         }
+                        break;
+                    default:
                         break;
                 }
             } while (userInput != "4");
