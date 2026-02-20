@@ -21,7 +21,7 @@ namespace CalculatorApp
                 while (userInput == null || !Regex.IsMatch(userInput, "[1-4]"))
                 {
                     Console.WriteLine("Please choose from 1 to 4");
-                    Console.ReadLine();
+                    userInput = Console.ReadLine();
                 }
 
                 switch (userInput)
@@ -41,7 +41,7 @@ namespace CalculatorApp
                             double cleanNumber1 = 0;
                             if (!usePrevious)
                             {
-                                Console.WriteLine("Please enter the first number:");
+                                Console.WriteLine("Please enter the first number: ");
                                 firstNumb = Console.ReadLine();
                                 while (!double.TryParse(firstNumb, out cleanNumber1))
                                 {
@@ -71,7 +71,7 @@ namespace CalculatorApp
                             double cleanNumber2 = 0;
                             if (Regex.IsMatch(op, @"[\+|\-|\*|/|^]"))
                             {
-                                Console.Write("Enter the second number");
+                                Console.Write("Enter the second number: ");
                                 secondNumb = Console.ReadLine();
                                 while (!double.TryParse(secondNumb, out cleanNumber2))
                                 {
@@ -87,6 +87,9 @@ namespace CalculatorApp
                                 if (double.IsNaN(result))
                                 {
                                     Console.WriteLine("This operation will result an arithmatic error.");
+                                    Console.WriteLine("\n");
+                                    break;
+                                    
                                 }
                                 else Console.WriteLine("Your result: {0:0.##}\n", result);
                             }
@@ -150,6 +153,7 @@ namespace CalculatorApp
                         }
                         break;
                     default:
+                        Console.WriteLine("Erorr: Please choose from 1 - 4");
                         break;
                 }
             } while (userInput != "4");
